@@ -12,8 +12,6 @@ applications:
         "/":
           passthru: true
 
-    disk: 512
-    
     hooks:
       build: |
         pip install --upgrade pip
