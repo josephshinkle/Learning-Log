@@ -1,3 +1,4 @@
 # Requirements for live project
 gunicorn
 psycopg2
+Django==6.0.1
