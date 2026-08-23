@@ -1,42 +1,44 @@
 # Learning Log
 
-Learning Log is a Django-based web application designed to help users log, organize, and review personal learning notes over time.
+A web app for organizing what you're learning — create topics, then keep dated entries under each one.
 
 ---
 
-## Features
+## What it does
 
-- User authentication (login/logout)
-- Create, read, update, and delete learning entries
-- Topic-based organization of notes
-- Django admin integration
-- Clean MVC-style architecture using Django apps
+- **Topics** — create subjects you're studying
+- **Entries** — dated, editable notes under each topic
+- **User accounts** — registration and login, with each user seeing only their own topics
+- **Access control** — entries are scoped to their owner
 
----
+## Stack
 
-## Tech Stack
-
-- Python 3
-- Django
-- SQLite
-- HTML templates
+`Python` · `Django` · `SQLite`
 
 ---
 
-## Running Locally
+## What I learned
 
-1. Clone the repository
-2. Create and activate a virtual environment
-3. Install dependencies
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Run migrations
-   ```bash
-   python manage.py migrate
-   ```
-5. Start the development server
-   ```bash
-   python manage.py runserver
-   ```
-   
+Django's ORM and its auth system do an enormous amount for you, and the tradeoff is that you have to learn *its* way of doing things rather than assembling your own. Coming from Flask — where you wire up sessions and queries yourself — the contrast was the useful part: Flask taught me what the pieces are, Django taught me what a mature framework decides on your behalf.
+
+The recurring lesson across both is the same one: **ownership checks belong in the query, not the view.** Filtering topics by the logged-in user at the database level is the difference between a real access-control boundary and a cosmetic one.
+
+---
+
+## Running locally
+
+```bash
+git clone https://github.com/josephshinkle/Learning-Log
+cd Learning-Log
+python -m venv venv
+source venv/bin/activate      # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+```
+
+Visit `http://localhost:8000`.
+
+---
+
+Built by **Joseph Shinkle** — [LinkedIn](https://www.linkedin.com/in/josephshinkle) · [GitHub](https://github.com/josephshinkle)
